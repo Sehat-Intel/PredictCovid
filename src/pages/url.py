@@ -49,15 +49,15 @@ def main():
         """
         )
     st.sidebar.info("Enter the Url of the X-ray, and our app will do the magic 🧙‍♂️")
-    st.title("Enter Url and Predict")
-    st.write("Our model has an accuracy of 94%")
+    st.subheader("Enter Url and Predict")
+    st.info("Our model has an accuracy of 94%")
 
     st.set_option('deprecation.showfileUploaderEncoding', False)
 
     path = st.text_input('Enter Image URL to Classify.. ','https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Chest_Xray_PA_3-8-2010.png/947px-Chest_Xray_PA_3-8-2010.png')
 
     if(path != ''):
-        if st.button("Predict the image from Url"):        
+        if st.button("Predict"):        
             content = requests.get(path).content
             image = Image.open(BytesIO(content))
             predict(image)

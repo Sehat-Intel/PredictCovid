@@ -24,3 +24,7 @@
             # if st.button("Test Image 1"):
         #     image = Image.open('test_img/covid.jpg')
         #     predict(image)
+
+
+        <a href="https://imgbb.com/"><img src="https://i.ibb.co/6y0HYyH/test1.jpg" alt="test1" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/rZ5rz2w/test.jpg" alt="test" border="0"></a>

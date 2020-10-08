@@ -3,18 +3,7 @@ import base64
 from PIL import Image
 import streamlit.components.v1 as components
 
-# def render_page(menupage):
-#     menupage.write()
 
-# def render_md(md_file_name):
-#     st.markdown(get_file_content_as_string(md_file_name))
-
-# def get_file_content_as_string(path):
-#     response = open(path, encoding="utf-8").read()
-#     return response
-
-# def show_code(file_name):
-#     return get_file_content_as_string(file_name)
 
 def main():
 
@@ -24,7 +13,8 @@ def main():
 
 
 
-    st.markdown('![GitHub top language](https://img.shields.io/github/languages/top/tuminzee/Covid-19-Detection-using-Deep-Learning?style=for-the-badge)  [![Github Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=appveyor)](https://github.com/tuminzee/Covid-19-Detection-using-Deep-Learning) ![GitHub contributors](https://img.shields.io/github/contributors/tuminzee/Covid-19-Detection-using-Deep-Learning?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/tuminzee/Covid-19-Detection-using-Deep-Learning?label=Fork&style=for-the-badge)')
+    st.markdown('![GitHub top language](https://img.shields.io/github/languages/top/tuminzee/PredictCovid?style=for-the-badge)  [![Github Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=appveyor)](https://github.com/tuminzee/PredictCovid) ![GitHub contributors](https://img.shields.io/github/contributors/tuminzee/PredictCovid?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/tuminzee/PredictCovid?label=Fork&style=for-the-badge)')
+    
     
     st.subheader("Meet Our Team")
     nav = st.radio("🚀🚀🚀",["Fenil Mehta","Krunal Vasoya","Tumin Sheth"])

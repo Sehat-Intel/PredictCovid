@@ -19,9 +19,14 @@ def main():
     st.title("About 🚀")
 
     st.sidebar.title("About")
-    render_md("resources/README.md")
+    # render_md("resources/README.md")
     st.sidebar.info("Please let us know what do you think about it!")
 
+    if st.button('Click here if you like the app!'):
+        st.balloons()
+
+
+    
     
 if __name__ == "__main__":
     main()

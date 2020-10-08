@@ -34,10 +34,10 @@ def predict(image):
     
     if prediction[0,0] == 0:
         st.warning("Covid-19")
-        st.write("Accuray : {:.2f}".format(((1-prob[0,0]))*100),"%")
+        st.write("Probability : {:.2f}".format(((1-prob[0,0]))*100),"%")
     else:
         st.info("Normal")
-        st.write("Accuracy : {:.2f}".format((prob[0,0])*100),"%")
+        st.write("Probability : {:.2f}".format((prob[0,0])*100),"%")
 
     st.image(image, use_column_width=True)
 
@@ -47,13 +47,16 @@ def main():
         # Covid-19 Detection using Deep Learning
         """
         )
+    
     st.sidebar.info("Upload the PA view Chest X-ray, and our app will will do the magic 🧙‍♂️")
-    st.title("Upload X-ray and Predict")
-    st.write("Our model has an accuracy of 94%")
+    st.title("Predict the probablity of the infection 🧙‍♂️")
+    st.info("Our model has an accuracy of 94%")
+    #st.warning("You have two options here, 1) Upload your X-ray 2) Test the app with test images")
+    st.subheader("1) Upload your PA View X-ray 📤")
 
     st.set_option('deprecation.showfileUploaderEncoding', False)
 
-    file = st.file_uploader("Upload Chest X-ray(PA view)", type=["jpg", "png", "jpeg"])
+    file = st.file_uploader("Upload Image here", type=["jpg", "png", "jpeg"])
 
     if file is not None:      
         if st.button("Predict"):
@@ -63,19 +66,23 @@ def main():
                 image = Image.open(file)
                 predict(image)
 
+    st.subheader("2) Don't have an X-ray? Worry not! Try our app with test images :pick:")
+    test_img = st.radio('Select Test Image!', ('Image 1', 'Image 2'))
 
-    st.subheader("Want to try our model with some test images?")
-    image = Image.open('test_img/test.jpeg')
-    st.image(image, caption="Test Image 1" ,use_column_width=False)
-    if st.button("Select this one"):
+
+    if test_img == 'Image 1':
         image = Image.open('test_img/test.jpeg')
-        predict(image)
-
-    image = Image.open('test_img/test1.jpg')
-    st.image(image, caption='Test Image 2', use_column_width=False)
-    if st.button("or select this one"):
+        if st.button("Test"):
+            predict(image)
+        else:
+            st.image(image, caption="Test Image 1" ,use_column_width=True)
+        
+    elif test_img == 'Image 2':
         image = Image.open('test_img/test1.jpg')
-        predict(image)
+        if st.button("Test"):
+            predict(image)
+        else:
+            st.image(image, caption="Test Image 1" ,use_column_width=True)
 
 if __name__ == "__main__":
     main()

@@ -32,8 +32,8 @@ if nav == "About":
 if st.sidebar.button('Like the app👍'):
     st.sidebar.text("Thank you 🥰")
     st.balloons()
-st.sidebar.markdown('![GitHub top language](https://img.shields.io/github/languages/top/tuminzee/Covid-19-Detection-using-Deep-Learning?style=for-the-badge)  [![Github Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=appveyor)](https://github.com/tuminzee/Covid-19-Detection-using-Deep-Learning)')
-st.sidebar.markdown('![GitHub contributors](https://img.shields.io/github/contributors/tuminzee/Covid-19-Detection-using-Deep-Learning?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/tuminzee/Covid-19-Detection-using-Deep-Learning?label=Fork&style=for-the-badge)')
+st.sidebar.markdown('![GitHub top language](https://img.shields.io/github/languages/top/tuminzee/PredictCovid?style=for-the-badge)  [![Github Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=appveyor)](https://github.com/tuminzee/PredictCovid)')
+st.sidebar.markdown('![GitHub contributors](https://img.shields.io/github/contributors/tuminzee/PredictCovid?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/tuminzee/PredictCovid?label=Fork&style=for-the-badge)')
 st.sidebar.markdown('![forthebadge](https://forthebadge.com/images/badges/for-you.svg) ![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)')
 
 

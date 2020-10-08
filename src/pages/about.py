@@ -24,7 +24,7 @@ def main():
 
 
 
-    st.markdown('![GitHub top language](https://img.shields.io/github/languages/top/tuminzee/Covid-19-Detection-using-Deep-Learning?style=for-the-badge)  [![Github Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=appveyor)](https://github.com/tuminzee/Covid-19-Detection-using-Deep-Learning) ![GitHub contributors](https://img.shields.io/github/contributors/tuminzee/Covid-19-Detection-using-Deep-Learning?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/tuminzee/Covid-19-Detection-using-Deep-Learning?label=Fork&style=for-the-badge)')
+    st.markdown('![GitHub top language](https://img.shields.io/github/languages/top/tuminzee/PredictCovid?style=for-the-badge)  [![Github Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=appveyor)](https://github.com/tuminzee/PredictCovid) ![GitHub contributors](https://img.shields.io/github/contributors/tuminzee/PredictCovid?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/tuminzee/PredictCovid?label=Fork&style=for-the-badge)')
     
     st.subheader("Meet Our Team")
     nav = st.radio("🚀🚀🚀",["Fenil Mehta","Krunal Vasoya","Tumin Sheth"])

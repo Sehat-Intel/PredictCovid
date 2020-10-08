@@ -4,7 +4,7 @@
 A Deep Learning model to detect Covid-19 using X-ray images.
 This is a simple classification model with an accuracy of 94%. 
 
-[Deployment Link](predictcovid19.herokuapp.com/)
+[Deployment Link](https://predictcovid19.herokuapp.com/)
 
 ## Run the model locally
 

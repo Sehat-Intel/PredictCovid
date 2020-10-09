@@ -23,7 +23,8 @@ def main():
         st.markdown('[**LinkedIn**](https://www.linkedin.com/in/fenilmehta/), [GitHub](https://github.com/mmehtafenil) ')
 
 
-        st.image('https://i.ibb.co/sKL3xBJ/fenil.jpg', width=320, use_column_width=True)
+        image = Image.open('profile/fenil.jpg')
+        st.image(image, width=400, use_column_width=True)
         CSS = """
         h1 {
             color: red;
@@ -35,7 +36,8 @@ def main():
     if nav == "Krunal Vasoya":
         st.subheader("Krunal Vasoya")    
         st.markdown('[**LinkedIn**](https://www.linkedin.com/in/krunal-vasoya-29a3691b5), [Github](https://github.com/krunal310) ')
-        st.image('https://i.ibb.co/VTL5nT6/IMG-4360-01.jpg', width=320, use_column_width=True)
+        image = Image.open('profile/kunal.jpg')
+        st.image(image, width=400, use_column_width=True)
         CSS = """
         h1 {
             color: orange;
@@ -45,8 +47,9 @@ def main():
 
     if nav == "Tumin Sheth":
         st.subheader("Tumin Sheth")
-        st.markdown('[**LinkedIn**](https://www.linkedin.com/in/fenilmehta/), [Github](upload://7FxfXwDqJIZdYJ2QYADywvNRjB.png) ')
-        st.image('https://i.ibb.co/SxJjRh8/tumin.jpg', width=400, use_column_width=True)
+        st.markdown('[**LinkedIn**](https://www.linkedin.com/in/tumin-sheth/), [Github](upload://7FxfXwDqJIZdYJ2QYADywvNRjB.png) ')
+        image = Image.open('profile/tumin.jpg')
+        st.image(image, width=400, use_column_width=True)
 
 
 if __name__ == "__main__":

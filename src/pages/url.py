@@ -34,10 +34,10 @@ def predict(image):
     prediction, prob = import_and_predict(image, model)
     
     if prediction[0,0] == 0:
-        st.write("Covid-19")
+        st.warning("Covid-19")
         st.write("Accuray : {:.2f}".format(((1-prob[0,0]))*100),"%")
     else:
-        st.write("Normal")
+        st.info("Normal")
         st.write("Accuracy : {:.2f}".format((prob[0,0])*100),"%")
 
     st.image(image, use_column_width=True)

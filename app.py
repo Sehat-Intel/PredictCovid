@@ -6,13 +6,13 @@ import src.pages.about as about
 import src.pages.home as home
 
 st.beta_set_page_config(
-    page_title="Predict Covid",
+    page_title="Sehat Intel",
     page_icon="💊",
     layout="centered", # wide
     initial_sidebar_state="auto") # collapsed
 
-st.title("Predict Covid 💊")
-st.subheader("""Detect the probablity of Covid-19 using Deep Learning""" )
+st.title("Sehat Intel 💊")
+st.subheader("""Covid-19 Detection using Deep Learning""" )
 if st.sidebar.button('Like the app👍'):
     st.sidebar.text("Thank you 🥰")
     st.balloons()

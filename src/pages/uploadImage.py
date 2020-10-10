@@ -49,14 +49,15 @@ def main():
         )
     
     st.sidebar.info("Upload the PA view Chest X-ray, and our app will will do the magic 🧙‍♂️")
-    st.subheader("Predict the probablity of the infection 🧙‍♂️")
-    st.info("Our model has an accuracy of 94%")
+    st.info("Our model has baseline accuracy of 94%")
+    st.title("Predict the Probability of Covid-19 🧙‍♂️")
+  
     #st.warning("You have two options here, 1) Upload your X-ray 2) Test the app with test images")
     st.subheader("1) Upload your PA View X-ray 📤")
 
     st.set_option('deprecation.showfileUploaderEncoding', False)
 
-    file = st.file_uploader("Upload Image here", type=["jpg", "png", "jpeg"])
+    file = st.file_uploader("Upload Image here ['jpg', 'png', 'jpeg']", type=["jpg", "png", "jpeg"])
 
     if file is not None:      
         if st.button("Predict"):

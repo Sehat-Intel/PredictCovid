@@ -9,10 +9,9 @@ import hash as hash
 
 from pymongo import MongoClient
 
-
-client = MongoClient('localhost', 27017)
-db = client['predict-covid']
-collection = db['user-data']
+client = MongoClient("mongodb+srv://admin:admin@cluster0.wi5ns.gcp.mongodb.net/predictCovid?retryWrites=true&w=majority")
+db = client.get_database('predictCovid')
+collection = db.userData
 
 st.set_page_config(
     page_title="Sehat Intel",
@@ -23,8 +22,7 @@ st.set_page_config(
 st.title("Sehat Intel 💊")
 
 
-menu = ["Tutorial","SignUp", "Login"]
-choice = st.sidebar.selectbox("Menu",menu)
+choice = st.sidebar.radio("Navigate to",["Tutorial","SignUp", "Login"], key=1)
 
 if choice == "Tutorial":
     st.subheader("Tutorial")

@@ -4,9 +4,9 @@ from pymongo import MongoClient
 import validateEmail as validateEmail
 import hash as hash
 
-client = MongoClient('localhost', 27017)
-db = client['predict-covid']
-collection = db['user-data']
+client = MongoClient("mongodb+srv://admin:admin@cluster0.wi5ns.gcp.mongodb.net/predictCovid?retryWrites=true&w=majority")
+db = client.get_database('predictCovid')
+collection = db.userData
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
 
             if validateEmail.validateEmail(email):
                 st.info("Valid Email")
-
+            else:
                 haheshPassword = hash.make_hashes(password)
                 collection.insert_one({'username': username, 'email': email, 'password':haheshPassword})
                 st.info('Signed Up, please login from the sidebar')

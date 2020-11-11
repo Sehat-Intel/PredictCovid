@@ -43,7 +43,7 @@ def predict(image):
     st.image(image, use_column_width=True)
 
 
-def main():
+def main(email):
     st.sidebar.write("""
         # Covid-19 Detection using Deep Learning
         """
@@ -66,5 +66,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(email)
 

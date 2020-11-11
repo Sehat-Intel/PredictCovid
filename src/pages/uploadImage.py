@@ -11,9 +11,13 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image, ImageOps
 import os
-import base64
-import requests
-from io import BytesIO
+import imgto64 as imgto64
+from pymongo import MongoClient
+
+
+client = MongoClient("mongodb+srv://admin:admin@cluster0.wi5ns.gcp.mongodb.net/predictCovid?retryWrites=true&w=majority")
+db = client.get_database('predictCovid')
+collection = db['UserReports']
 
 def import_and_predict(image_data, model):
         size = (128,128)    
@@ -35,14 +39,16 @@ def predict(image):
     if prediction[0,0] == 0:
         st.warning("Covid-19")
         st.write("Probability : {:.2f}".format(((1-prob[0,0]))*100),"%")
+        return True,((1-prob[0,0]))*100
     else:
         st.info("Normal")
         st.write("Probability : {:.2f}".format((prob[0,0])*100),"%")
+        return False,((1-prob[0,0]))*100
 
     st.image(image, use_column_width=True)
 
 
-def main():
+def main(email):
     st.sidebar.write("""
         # Covid-19 Detection using Deep Learning
         """
@@ -65,7 +71,12 @@ def main():
                 st.text("You haven't uploaded an image file")
             else:
                 image = Image.open(file)
-                predict(image)
+                base64string = imgto64.b64(file)
+                covid, percent = predict(image)
+                print(email)
+                print(covid, percent)
+                collection.insert_one({'covid': covid,'percent':percent, 'image':base64string})
+
 
     st.subheader("2) Don't have an X-ray? Worry not! Try our app with test images :pick:")
     test_img = st.radio('Select Test Image!', ('Image 1', 'Image 2'))

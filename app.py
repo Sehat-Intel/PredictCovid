@@ -13,11 +13,12 @@ client = MongoClient("mongodb+srv://admin:admin@cluster0.wi5ns.gcp.mongodb.net/p
 db = client.get_database('predictCovid')
 collection = db.userdatas
 
+
 st.set_page_config(
-    page_title="Sehat Intel",
-    page_icon="💊",
-    layout="centered", # wide
-    initial_sidebar_state="auto") # collapsed
+     page_title="Sehat Intel",
+     page_icon="💊",
+     layout="centered", # wide
+     initial_sidebar_state="auto") # collapsed
 
 st.title("Sehat Intel 💊")
 
@@ -44,7 +45,7 @@ if choice == "Login":
             if obj:
                 if (hash.check_hashes(password, obj['password'])):
                     st.info('Logged in as ' + obj['username'])
-                    dashboard.main()
+                    dashboard.main(email)
             else:
                 st.warning('Invalid Username or Password, please try again')
 

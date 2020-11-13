@@ -38,13 +38,15 @@ def predict(image):
     if prediction[0,0] == 0:
         st.warning("Covid-19")
         st.write("Probability : {:.2f}".format(((1-prob[0,0]))*100),"%")
+        st.image(image, use_column_width=True)
         return "Covid","{:.2f} %".format((1-prob[0,0])*100)
     else:
         st.info("Normal")
         st.write("Probability : {:.2f}".format((prob[0,0])*100),"%")
+        st.image(image, use_column_width=True)
         return "Normal","{:.2f} %".format((prob[0,0])*100)
 
-    st.image(image, use_column_width=True)
+    
 
 
 def main(email):

@@ -17,7 +17,12 @@ st.set_page_config(
 
 st.title("Sehat Intel 💊")
 
-choice = st.sidebar.radio("Navigate to",["Tutorial","SignUp", "Login"], key=1)
+choice = st.sidebar.radio("User Login",["Tutorial","SignUp", "Login"], key=1)
+doc_login = st.sidebar.radio("Are you a doctor?",["No","Yes"])
+
+if doc_login == "Yes":
+    st.sidebar.markdown('[Click to login](https://gallant-kilby-f9f3a3.netlify.app/)')
+
 
 if choice == "Tutorial":
     st.subheader("Tutorial")

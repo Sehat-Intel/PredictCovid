@@ -14,7 +14,7 @@ def main():
 
     # Youtube vide link 
     st.subheader("Watch the tutorial 👀")
-    st.video('https://www.youtube.com/watch?v=Yw6u6YkTgQ4')
+    st.video('https://www.youtube.com/watch?v=OVTwE3rf0-w')
     # if not hasattr(st, "client"):
     #     st.client = MongoClient('mongodb://127.0.0.1/local')
 

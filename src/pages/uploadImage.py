@@ -77,7 +77,6 @@ def main(email):
                 Reports.insert_one({
                     'email': email,
                     'username': user['username'],
-                    'image': base64string,
                     'status': status,
                     'percent': percent,
                     'message': 'No messages'

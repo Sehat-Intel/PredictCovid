@@ -5,7 +5,7 @@ import validateEmail as validateEmail
 import hash as hash
 import config as config
 
-collection = config.db['UserData']
+collection = config.db['users']
 
 
 

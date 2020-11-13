@@ -7,7 +7,7 @@ import src.pages.dashboard as dashboard
 import config as config
 
 import hash as hash
-collection = config.db['UserData']
+collection = config.db['users']
 
 st.set_page_config(
      page_title="Sehat Intel",

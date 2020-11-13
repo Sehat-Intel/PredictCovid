@@ -15,7 +15,8 @@ import imgto64 as imgto64
 from pymongo import MongoClient
 import config as config
 
-collection = config.db['UserReports']
+Reports = config.db['records']
+Users = config.db['users']
 
 def import_and_predict(image_data, model):
         size = (128,128)    
@@ -37,11 +38,11 @@ def predict(image):
     if prediction[0,0] == 0:
         st.warning("Covid-19")
         st.write("Probability : {:.2f}".format(((1-prob[0,0]))*100),"%")
-        return True,((1-prob[0,0]))*100
+        return "Covid","{:.2f} %".format((1-prob[0,0])*100)
     else:
         st.info("Normal")
         st.write("Probability : {:.2f}".format((prob[0,0])*100),"%")
-        return False,((1-prob[0,0]))*100
+        return "Normal","{:.2f} %".format((prob[0,0])*100)
 
     st.image(image, use_column_width=True)
 
@@ -70,10 +71,17 @@ def main(email):
             else:
                 image = Image.open(file)
                 base64string = imgto64.b64(file)
-                covid, percent = predict(image)
+                status, percent = predict(image)
                 print(email)
-                print(covid, percent)
-                collection.insert_one({'covid': covid,'percent':percent, 'image':base64string})
+                user = Users.find_one({'email': email})
+                Reports.insert_one({
+                    'email': email,
+                    'username': user['username'],
+                    'image': base64string,
+                    'status': status,
+                    'percent': percent,
+                    'message': 'No messages'
+                })
 
 
     st.subheader("2) Don't have an X-ray? Worry not! Try our app with test images :pick:")
@@ -95,5 +103,5 @@ def main(email):
             st.image(image, caption="Test Image 1" ,use_column_width=True)
 
 if __name__ == "__main__":
-    main()
+    main(email)
 

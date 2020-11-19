@@ -1,13 +1,11 @@
 import streamlit as st
 from pymongo import MongoClient
 
-import validateEmail as validateEmail
-import hash as hash
-import config as config
+import src.assets.validateEmail as validateEmail
+import src.assets.hash as hash
+import src.assets.config as config
 
 collection = config.db['users']
-
-
 
 def main():
 

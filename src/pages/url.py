@@ -30,7 +30,7 @@ def import_and_predict(image_data, model):
         return prediction, prob
 
 def predict(image):
-    model = tf.keras.models.load_model('model.hdf5')
+    model = tf.keras.models.load_model('src/assets/model.hdf5')
     prediction, prob = import_and_predict(image, model)
     
     if prediction[0,0] == 0:
@@ -48,13 +48,11 @@ def main(email):
         # Covid-19 Detection using Deep Learning
         """
         )
-    st.sidebar.info("Enter the Url of the X-ray, and our app will do the magic 🧙‍♂️")
     st.subheader("Enter Url and Predict")
-    st.info("Our model has an accuracy of 94%")
 
     st.set_option('deprecation.showfileUploaderEncoding', False)
 
-    path = st.text_input('Enter Image URL to Classify.. ','https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Chest_Xray_PA_3-8-2010.png/947px-Chest_Xray_PA_3-8-2010.png')
+    path = st.text_input('Enter Image URL to Classify ','https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Chest_Xray_PA_3-8-2010.png/947px-Chest_Xray_PA_3-8-2010.png')
 
     if(path != ''):
         if st.button("Predict"):        
@@ -62,7 +60,7 @@ def main(email):
             image = Image.open(BytesIO(content))
             predict(image)
     else:
-        st.text("Enter the Url and Press ENTER")
+        st.text("Enter the Url")
 
 
 if __name__ == "__main__":

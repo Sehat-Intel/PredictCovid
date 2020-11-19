@@ -3,14 +3,15 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image, ImageOps
 import os
-import imgto64 as imgto64
 from pymongo import MongoClient
-import config as config
+
+import src.assets.config as config
+import src.assets.imgto64 as imgto64
 
 Reports = config.db['records']
 Users = config.db['users']
 
-model = tf.keras.models.load_model('model.hdf5')
+model = tf.keras.models.load_model('src/assets/model.hdf5')
 
 def predict(image_data,model):
     
@@ -42,14 +43,12 @@ def main(email):
         )
     
     st.sidebar.info("Upload the PA view Chest X-ray, and our app will will do the magic 🧙‍♂️")
-    st.info("Our model has baseline accuracy of 94%")
-    st.title("Predict the Probability of Covid-19 🧙‍♂️")
   
     st.subheader("1) Upload your PA View X-ray 📤")
 
     st.set_option('deprecation.showfileUploaderEncoding', False)
 
-    file = st.file_uploader("Upload Image here ['jpg', 'png', 'jpeg']", type=["jpg", "png", "jpeg"])
+    file = st.file_uploader("Upload Image here ['jpg', 'jpeg']", type=["jpg", "jpeg"])
 
     if file is not None:      
         if st.button("Predict"):
@@ -75,18 +74,18 @@ def main(email):
 
 
     if test_img == 'Image 1':
-        image = Image.open('test_img/test.jpeg')
+        image = Image.open('src/img/test.jpeg')
         if st.button("Test"):
             predict(image,model)
         else:
             st.image(image, caption="Test Image 1" ,use_column_width=True)
         
     elif test_img == 'Image 2':
-        image = Image.open('test_img/test1.jpg')
+        image = Image.open('src/img/test1.jpg')
         if st.button("Test"):
             predict(image,model)
         else:
-            st.image(image, caption="Test Image 1" ,use_column_width=True)
+            st.image(image, caption="Test Image 2" ,use_column_width=True)
 
 if __name__ == "__main__":
     main(email)

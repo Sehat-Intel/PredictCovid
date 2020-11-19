@@ -5,7 +5,6 @@ import src.pages.about as about
 
 
 def main(email):
-    st.text(email)
     nav = st.radio("Navigate to",["Upload X-ray and Predict","X-ray Url and Predict", "About"], key=1)
 
 

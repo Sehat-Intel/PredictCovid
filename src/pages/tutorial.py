@@ -10,7 +10,8 @@ def main():
     st.sidebar.info("This page conatins all the basic info about the app")
 
     # Youtube vide link 
-    st.subheader("Watch the tutorial 👀")
+    st.text("Watch the tutorial 👀")
+    st.video('https://youtu.be/Yw6u6YkTgQ4');
     # st.video('https://www.youtube.com/watch?v=OVTwE3rf0-w')
     # if not hasattr(st, "client"):
 

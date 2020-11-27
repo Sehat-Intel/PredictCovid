@@ -4,12 +4,15 @@ import tensorflow as tf
 from PIL import Image, ImageOps
 import os
 from pymongo import MongoClient
+from datetime import datetime
+import uuid
 
 import src.assets.config as config
 import src.assets.imgto64 as imgto64
 
 Reports = config.db['records']
 Users = config.db['users']
+Images = config.db['images']
 
 model = tf.keras.models.load_model('src/assets/model.hdf5')
 
@@ -58,14 +61,21 @@ def main(email):
                 image = Image.open(file)
                 base64string = imgto64.b64(file)
                 status, percent = predict(image,model)
-                print(email)
+                #print(email)
                 user = Users.find_one({'email': email})
+                id = uuid.uuid1().hex
                 Reports.insert_one({
                     'email': email,
                     'username': user['username'],
                     'status': status,
                     'percent': percent,
-                    'message': 'No messages'
+                    'message': 'No messages',
+                    'created_time': datetime.now(),
+                    'image_id': id
+                })
+                Images.insert_one({
+                    'image_id': id,
+                    'image': base64string
                 })
 
 

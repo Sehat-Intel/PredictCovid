@@ -20,10 +20,10 @@ st.warning("""Covid-19 Detection using Deep Learning""" )
 st.info("Our model has baseline accuracy of 94%")
 st.title("Predict the Probability of Covid-19 🧙‍♂️")
 
-choice = st.sidebar.radio("User Login",["Tutorial","SignUp", "Login"], key=1)
+choice = st.sidebar.radio("User Login",["SignUp","Login", "Tutorial"], key=1)
 
 if st.sidebar.button('Click here if you are a doctor'):
-    webbrowser.open_new_tab('https://gallant-kilby-f9f3a3.netlify.app/')
+    webbrowser.open_new_tab('https://sehatintelngd-conti-deply.netlify.app/')
 
 
 if choice == "Tutorial":

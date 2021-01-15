@@ -1,4 +1,4 @@
-# Predict Covid!
+# Sehat Intel
 
 
 A Deep Learning model to detect Covid-19 using X-ray images.
